@@ -1,16 +1,16 @@
-export default class UserModel {
+export default class User {
   id!: number;
   nom: string;
   prenom: string;
   date_de_naissance?: string;
-  date_inscription: Date;
+  date_inscription: string;
   nationalite?: string;
 
   constructor(
     nom: string,
     prenom: string,
     date_de_naissance: string,
-    date_inscription: Date,
+    date_inscription: string,
     nationalite?: string
   ) {
     this.nom = nom;

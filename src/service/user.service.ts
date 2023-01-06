@@ -1,4 +1,4 @@
-import UserModel from "../model/user.model";
+import User from "../model/user.model";
 import UserRepository from "../repository/user.repository";
 
 export default class UserService {
@@ -8,11 +8,32 @@ export default class UserService {
     this.#repo = repo;
   }
 
-  getAll = (): Promise<UserModel[]> => {
+  getAll = (): Promise<User[]> => {
     return this.#repo.getAll();
   };
 
-  getById = (id: number): Promise<UserModel> => {
+  getById = (id: number): Promise<User> => {
     return this.#repo.getById(id);
+  };
+
+  create = (
+    nom: string,
+    prenom: string,
+    date_de_naissance: string,
+    date_inscription: string,
+    nationalite: string
+  ): Promise<User> => {
+    const data = new User(
+      nom,
+      prenom,
+      date_de_naissance,
+      date_inscription,
+      nationalite
+    );
+    return this.#repo.create(data);
+  };
+
+  delete = (id: number): Promise<any> => {
+    return this.#repo.delete(id);
   };
 }

@@ -2,8 +2,11 @@ import express from "express";
 import "dotenv/config";
 import router from "./router/user.router";
 
-//Parse le json
+//Instance de express
 const app = express();
+
+//Parse le json
+app.use(express.json());
 
 //Utilisateur d'une variable d'environnement
 const port = process.env.PORT;
